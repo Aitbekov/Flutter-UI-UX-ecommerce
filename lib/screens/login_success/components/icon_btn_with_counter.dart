@@ -1,4 +1,5 @@
 import 'package:ecommerce/constants.dart';
+import 'package:ecommerce/models/Cart.dart';
 import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -44,7 +45,7 @@ class IconBtnWithCounter extends StatelessWidget {
                       border: Border.all(
                           width: 1.5, color: Colors.white)),
                   child: Center(
-                    child: Text('$numOfItems', style: TextStyle(fontSize: getProportionateScreenWidth(10),
+                    child: Text('${demoCarts.length}', style: TextStyle(fontSize: getProportionateScreenWidth(10),
                         height: 1,
                         color: Colors.white,
                         fontWeight: FontWeight.w600),

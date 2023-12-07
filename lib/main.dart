@@ -1,8 +1,7 @@
 import 'package:ecommerce/routs.dart';
-import 'package:ecommerce/screens/home/home_screen.dart';
+import 'package:ecommerce/screens/profile/profile_screen.dart';
 import 'package:ecommerce/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import 'theme.dart';
 

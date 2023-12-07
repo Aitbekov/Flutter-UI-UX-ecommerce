@@ -67,14 +67,14 @@ class SmallProductImage extends StatefulWidget {
 }
 
 class _SmallProductImageState extends State<SmallProductImage> {
-  var defaultDuration;
+  
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: widget.press,
       child: AnimatedContainer(
-        duration: defaultDuration,
+        duration: Duration(milliseconds: 100),
         margin: const EdgeInsets.only(right: 16),
         padding: const EdgeInsets.all(8),
         height: 48,

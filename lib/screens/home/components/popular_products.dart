@@ -1,11 +1,10 @@
-import 'dart:developer';
-
-import 'package:ecommerce/components/product_card.dart';
-import 'package:ecommerce/models/Product.dart';
-import 'package:ecommerce/screens/details/details_screen.dart';
-import 'package:ecommerce/screens/home/components/section_title.dart';
 import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
+
+import '../../../components/product_card.dart';
+import '../../../models/Product.dart';
+import '../../details/details_screen.dart';
+import 'section_title.dart';
 
 class PopularProducts extends StatelessWidget {
   const PopularProducts({super.key});
@@ -14,32 +13,47 @@ class PopularProducts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SectionTitle(text: 'Popular product', press: () {}),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: SectionTitle(
+            text: "Popular Products",
+            press: () {
+              Navigator.pushNamed(context, DetailsScreen.routeName);
+            },
+          ),
+        ),
         SizedBox(
           height: getProportionateScreenWidth(20),
         ),
         SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                ...List.generate(
-                    demoProducts.length,
-                    (index) => ProductCard(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              ...List.generate(
+                demoProducts.length,
+                (index) {
+                  if (demoProducts[index].isPopular) {
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: ProductCard(
                         product: demoProducts[index],
                         press: () {
-                          log("image path${demoProducts[index]}");
-                          Navigator.pushNamed(
-                            context,
-                            DetailsScreen.routeName,
-                            arguments: ProductDetailsArguments(
-                                product: demoProducts[index]),
-                          );
-                        })),
-                SizedBox(
-                  width: getProportionateScreenWidth(20),
-                ),
-              ],
-            ))
+                          Navigator.pushNamed(context, DetailsScreen.routeName,
+                              arguments: ProductDetailsArguments(
+                                  product: demoProducts[index]));
+                        },
+                      ),
+                    );
+                  }
+
+                  return const SizedBox
+                      .shrink(); // here by default width and height is 0
+                },
+              ),
+              const SizedBox(width: 20),
+            ],
+          ),
+        )
       ],
     );
   }

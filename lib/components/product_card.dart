@@ -32,6 +32,9 @@ class ProductCard extends StatelessWidget {
                         padding:
                             EdgeInsets.all(getProportionateScreenWidth(140)),
                         decoration: BoxDecoration(
+                          image: 
+                          DecorationImage(image: 
+                          AssetImage(product.images[0])),
                           color: kSecondaryColor.withOpacity(0.1),
                           borderRadius: BorderRadius.circular(15),
                         ),

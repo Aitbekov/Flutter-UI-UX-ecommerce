@@ -15,10 +15,10 @@ class DiscountBanner extends StatelessWidget {
       width: double.infinity,
       //  height: 90,
       decoration: BoxDecoration(
-        color: Color(0xFF4A3298),
+        color: const Color(0xFF4A3298),
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Text.rich(TextSpan(
+      child: const Text.rich(TextSpan(
           text: 'A summer Surprice\n',
           style: TextStyle(color: Colors.white),
           children: [
